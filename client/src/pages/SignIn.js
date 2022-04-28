@@ -33,9 +33,9 @@ const SignIn = (props) => {
                         <input
                             className="user-form-layout-input"
                             onChange={handleChange}
-                            name="username"
-                            type="username"
-                            value={formValues.email}
+                            name="userName"
+                            type="userName"
+                            value={formValues.userName}
                             required
                         />
                     </div>

@@ -6,7 +6,8 @@ const NavBar = ({ authenticated, user, handleLogOut }) => {
     if (user) {
         authenticatedOptions = (
             <nav>
-                <h3>Welcome {user.username}!</h3>
+                <h3>Welcome {user.userName}!</h3>
+                <Link to="/create-poll"> Create a Poll </Link>
                 <Link to={`/profile/${user.id}`}>My Polls</Link>
                 <Link onClick={handleLogOut} to="/">
                     Sign Out

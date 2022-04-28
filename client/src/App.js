@@ -6,6 +6,8 @@ import NavBar from './components/NavBar'
 import PollPage from './pages/PollPage'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import CreateAPoll from './pages/CreateAPoll'
+import Profile from './pages/Profile'
 import './App.css';
 
 function App() {
@@ -45,6 +47,10 @@ function App() {
           <Route path="/signin" element={<SignIn
             setUser={setUser}
             toggleAuthenticated={toggleAuthenticated} />} />
+          <Route path="/create-poll" element={<CreateAPoll
+            user={user} />} />
+          <Route path="/profile/:user_id" element={<Profile
+            user={user} />} />
         </Routes>
       </main>
     </div>

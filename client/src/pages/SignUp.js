@@ -7,8 +7,6 @@ const SignUp = () => {
   let navigate = useNavigate()
 
   const [formValues, setFormValues] = useState({
-    firstName: '',
-    lastName: '',
     userName: '',
     email: '',
     password: '',
