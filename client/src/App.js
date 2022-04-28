@@ -1,0 +1,54 @@
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { CheckSession } from './services/Auth'
+import NavBar from './components/NavBar'
+import PollPage from './pages/PollPage'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import './App.css';
+
+function App() {
+  const [authenticated, toggleAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
+
+  const checkToken = async () => {
+    const user = await CheckSession();
+    setUser(user);
+    toggleAuthenticated(true);
+  }
+
+  const handleLogOut = () => {
+    setUser(null)
+    toggleAuthenticated(false)
+    localStorage.clear()
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
+  return (
+    <div className="App">
+      <NavBar
+        authenticated={authenticated}
+        user={user}
+        handleLogOut={handleLogOut}
+      />
+      <main>
+        <Routes>
+          <Route path="/" element={<PollPage />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn
+            setUser={setUser}
+            toggleAuthenticated={toggleAuthenticated} />} />
+        </Routes>
+      </main>
+    </div>
+  )
+}
+
+export default App;
