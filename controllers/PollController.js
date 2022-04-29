@@ -3,11 +3,11 @@ const { Option } = require('../models')
 
 const GetPolls = async (req, res) => {
     try {
-        const allPollsWithOptions = await Poll.findAll({
-            attributes: ['id', 'question', 'user_id'],
+        const allPolls = await Poll.findAll({
+            attributes: ['id', 'question','img', 'user_id'],
             order: [['updatedAt', 'DESC']]
         })
-        res.send(allPollsWithOptions)
+        res.send(allPolls)
     } catch (error) {
         throw error
     }

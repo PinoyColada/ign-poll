@@ -2,7 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('polls', [{
+    await queryInterface.bulkInsert('options', [{
       choice: 'The game can do better',
       voteCount: 21,
       poll_id: 1,
