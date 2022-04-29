@@ -3,9 +3,8 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('polls', [{
-      firstName: 'John',
-      lastName: 'Demo',
-      email: 'John@Demo.com',
+      question: 'What do you think about Halo Infinite?',
+      user_id: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     }])
