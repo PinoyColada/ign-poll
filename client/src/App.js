@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp'
 import CreateAPoll from './pages/CreateAPoll'
 import Profile from './pages/Profile'
 import PollOptions from './pages/PollOptions'
+import CreateChoices from './pages/CreateChoices'
 import './App.css';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
           <Route path="/profile/:user_id" element={<Profile
             user={user} />} />
           <Route path="/poll/pollInfo/:poll_id" element={<PollOptions />} />
+          <Route path="/create-choice" element={<CreateChoices />}/>
         </Routes>
       </main>
     </div>

@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    voteCount: {
+    vote_count: {
       type: DataTypes.INTEGER,
       allowNull: false
     },

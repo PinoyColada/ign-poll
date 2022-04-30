@@ -1,5 +1,6 @@
 const { Poll } = require('../models')
 const { Option } = require('../models')
+const sequelize = require("sequelize");
 
 const GetPolls = async (req, res) => {
     try {
@@ -33,7 +34,7 @@ const GetUserPolls = async (req, res) => {
 const GetOpinionByPollId = async (req, res) => {
     try {
         const pollChoices = await Option.findAll({
-            attributes: ['choice', 'voteCount', 'poll_id'],
+            attributes: ['id','choice', 'vote_count', 'poll_id'],
             order: [['updatedAt', 'DESC']],
             where: {
                 poll_id: req.params.poll_id
@@ -47,7 +48,6 @@ const GetOpinionByPollId = async (req, res) => {
 
 const CreatePoll = async (req, res) => {
     const user_id = parseInt(req.params.user_id)
-    // const poll_id = Option.belongsTo(Poll, { as: 'poll_id' });  parameter for line 54--> , {include: [poll_id]}
     try {
         let buildPollBody = {
             user_id,
@@ -61,10 +61,34 @@ const CreatePoll = async (req, res) => {
     }
 }
 
+const CreateChoice = async (req, res) => {
+    const poll_id = parseInt(req.params.poll_id)
+    try {
+        let buildChoiceBody = {
+            poll_id,
+            ...req.body
+        }
+        const createChoice = await Option.create(buildChoiceBody)
+        res.send(createChoice)
+    }
+    catch (error) {
+        throw error
+    }
+}
+
 const IncrementVote = async (req, res) => {
     try {
-        const voteIncrease = await Option.increment('voteCount',{ where: { id: req.params.id } })
+        // let option_id = parseInt(req.params.id)
+        // const voteIncrease = await Option.increment('voteCount' ,{
+        //     by: 1,
+        //     where: { id: option_id },
+        //     returning: true })
+        // res.send(voteIncrease)
+        const voteIncrease = await Option.update(
+            { vote_count: sequelize.literal('vote_count+ 1') },
+              { where: { id: req.body.id } });
         res.send(voteIncrease)
+
     } catch (error) {
         throw error
     }
@@ -86,6 +110,7 @@ module.exports = {
     GetUserPolls,
     GetOpinionByPollId,
     CreatePoll,
+    CreateChoice,
     IncrementVote,
     DeletePoll
 }
