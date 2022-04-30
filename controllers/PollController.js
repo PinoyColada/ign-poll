@@ -33,13 +33,13 @@ const GetUserPolls = async (req, res) => {
 const GetOpinionByPollId = async (req, res) => {
     try {
         const pollChoices = await Option.findAll({
-            attributes: ['id', 'question', 'user_id'],
+            attributes: ['choice', 'voteCount', 'poll_id'],
             order: [['updatedAt', 'DESC']],
             where: {
-                user_id: req.params.user_id
+                poll_id: req.params.poll_id
             }
         })
-        res.send(userPolls)
+        res.send(pollChoices)
     } catch (error) {
         throw error
     }
@@ -65,5 +65,6 @@ const CreatePoll = async (req, res) => {
 module.exports = {
     GetPolls,
     GetUserPolls,
+    GetOpinionByPollId,
     CreatePoll
 }

@@ -8,6 +8,7 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import CreateAPoll from './pages/CreateAPoll'
 import Profile from './pages/Profile'
+import PollOptions from './pages/PollOptions'
 import './App.css';
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
             user={user} />} />
           <Route path="/profile/:user_id" element={<Profile
             user={user} />} />
+          <Route path="/:poll_id" element={<PollOptions />} />
         </Routes>
       </main>
     </div>
