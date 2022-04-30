@@ -69,3 +69,34 @@ header {
   border-color: white;
   color: #ffffff;
 }
+
+.pollContainer {
+  background-color: #303643;
+  max-width: 30%;
+  min-width: 300px;
+  padding: 10px 30px 50px 30px;
+  margin: 50px auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pollImg {
+  max-width: 300px;
+  height: auto;
+}
+
+.pollBtn {
+  background-color: #ffffff;
+  color: #171c25;
+  margin-top: 30px;
+  padding: 5px 100px;
+  border-radius: 8px;
+  border: none;
+}
+
+.pollBtn:hover {
+  background-color: #41495b;
+  color: #8b9399;
+}
