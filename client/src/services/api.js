@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-export const BASE_URL = 'http://localhost:3001/api'
+export const BASE_URL = process.env.NODE_ENV === 'production' ?  'https://gaming-polls.herokuapp.com/api' : 'http://localhost:3001/api'
+
 
 const Client = axios.create({ baseURL: BASE_URL })
 
