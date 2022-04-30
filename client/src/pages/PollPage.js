@@ -1,11 +1,9 @@
 import React from 'react'
 import Client from '../services/api'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const PollPage = () => {
-  let navigate = useNavigate()
   const [polls, setPolls] = useState([])
 
   useEffect(() => {
@@ -25,7 +23,7 @@ const PollPage = () => {
           <div key={poll.id} className='pollContainer'>
             <h3 className='pollTitle'>{poll.question}</h3>
             <img className='pollImg' src={poll.img} alt="Poll" />
-            <Link to={`poll/pollInfo/${poll.id}`} state={{ poll_id: poll.id, title: poll.title }}><button className='pollBtn'> View Choices </button></Link>
+            <Link to={`poll/pollInfo/${poll.id}`} state={{ poll_id: poll.id, question: poll.question }}><button className='pollBtn'> View Choices </button></Link>
           </div>
         ))}
       </div>

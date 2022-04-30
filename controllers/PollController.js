@@ -4,7 +4,7 @@ const { Option } = require('../models')
 const GetPolls = async (req, res) => {
     try {
         const allPolls = await Poll.findAll({
-            attributes: ['id', 'question','img', 'user_id'],
+            attributes: ['id', 'question', 'img', 'user_id'],
             order: [['updatedAt', 'DESC']]
         })
         res.send(allPolls)
@@ -61,10 +61,20 @@ const CreatePoll = async (req, res) => {
     }
 }
 
+const IncrementVote = async (req, res) => {
+    try {
+        const voteIncrease = await Option.increment('voteCount',{ where: { id: req.params.id } })
+        res.send(voteIncrease)
+    } catch (error) {
+        throw error
+    }
+}
+
 
 module.exports = {
     GetPolls,
     GetUserPolls,
     GetOpinionByPollId,
-    CreatePoll
+    CreatePoll,
+    IncrementVote
 }
