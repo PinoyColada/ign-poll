@@ -1,5 +1,6 @@
 import React from 'react'
 import Client from '../services/api'
+import DeleteAPoll from '../components/DeleteAPoll'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -27,6 +28,7 @@ const Profile = ({ user }) => {
             <Link to={`poll/pollInfo/${poll.id}`} state={{ poll_id: poll.id, question: poll.question }}>
               <button className='pollBtn'> View Choices </button>
             </Link>
+            <DeleteAPoll poll_id={poll.id} />
           </div>
         ))}
       </div>

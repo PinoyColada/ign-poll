@@ -70,11 +70,22 @@ const IncrementVote = async (req, res) => {
     }
 }
 
+const DeletePoll = async (req, res) => {
+    try {
+        let poll_id = parseInt(req.params.poll_id)
+        await Poll.destroy({ where: { id: poll_id } })
+        res.send({ message: `Your poll, ${poll_id}, was deleted` })
+    } catch (error) {
+        throw error
+    }
+}
+
 
 module.exports = {
     GetPolls,
     GetUserPolls,
     GetOpinionByPollId,
     CreatePoll,
-    IncrementVote
+    IncrementVote,
+    DeletePoll
 }
