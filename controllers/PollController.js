@@ -16,7 +16,7 @@ const GetPolls = async (req, res) => {
 const GetUserPolls = async (req, res) => {
     try {
         const userPolls = await Poll.findAll({
-            attributes: ['id', 'question', 'user_id'],
+            attributes: ['id', 'question', 'img', 'user_id'],
             order: [['updatedAt', 'DESC']],
             where: {
                 user_id: req.params.user_id
