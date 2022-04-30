@@ -25,8 +25,8 @@ const Profile = ({ user }) => {
           <div key={poll.id} className='pollContainer'>
             <h3 className='pollTitle'>{poll.question}</h3>
             <img className='pollImg' src={poll.img} alt="Poll" />
-            <Link to={`poll/pollInfo/${poll.id}`} state={{ poll_id: poll.id, question: poll.question }}>
-              <button className='pollBtn'> View Choices </button>
+            <Link to={`create-choice`} state={{ poll_id: poll.id, question: poll.question }}>
+              <button className='pollBtn'> Create A Choice </button>
             </Link>
             <DeleteAPoll poll_id={poll.id} />
           </div>

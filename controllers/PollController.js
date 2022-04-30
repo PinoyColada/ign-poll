@@ -29,13 +29,11 @@ const GetUserPolls = async (req, res) => {
     }
 }
 
-// const GetAllVoteCounts
-
 const GetOpinionByPollId = async (req, res) => {
     try {
         const pollChoices = await Option.findAll({
-            attributes: ['id','choice', 'vote_count', 'poll_id'],
-            order: [['updatedAt', 'DESC']],
+            attributes: ['id', 'choice', 'vote_count', 'poll_id'],
+            order: [['createdAt', 'DESC']],
             where: {
                 poll_id: req.params.poll_id
             }
@@ -78,17 +76,9 @@ const CreateChoice = async (req, res) => {
 
 const IncrementVote = async (req, res) => {
     try {
-        // let option_id = parseInt(req.params.id)
-        // const voteIncrease = await Option.increment('voteCount' ,{
-        //     by: 1,
-        //     where: { id: option_id },
-        //     returning: true })
-        // res.send(voteIncrease)
-        const voteIncrease = await Option.update(
+        await Option.update(
             { vote_count: sequelize.literal('vote_count+ 1') },
-              { where: { id: req.body.id } });
-        res.send(voteIncrease)
-
+            { where: { id: req.body.id } });
     } catch (error) {
         throw error
     }
