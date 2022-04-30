@@ -110,3 +110,8 @@ header {
   background-color: #41495b;
   color: #8b9399;
 }
+
+#deleteBtn:hover {
+  background-color: red;
+  color: #ffffff;
+}

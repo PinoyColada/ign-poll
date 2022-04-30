@@ -5,19 +5,19 @@ import { useNavigate } from 'react-router-dom'
 const DeleteAPoll = (props) => {
     let navigate = useNavigate()
 
-    const DeletePost = async () => {
+    const DeletePoll = async () => {
         await Client.delete(`poll/${props.poll_id}`);
     }
 
     const handleDelete = () => {
-        DeletePost();
+        DeletePoll();
         navigate('/');
         window.location.reload(false)
     }
 
     return (
         <div>
-            <button onClick={handleDelete}>Delete Post</button>
+            <button id = 'deleteBtn' className='pollBtn' onClick={handleDelete}>Delete Poll</button>
         </div>
     )
 }
