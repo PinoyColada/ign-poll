@@ -25,7 +25,7 @@ const PollPage = () => {
           <div key={poll.id} className='pollContainer'>
             <h3 className='pollTitle'>{poll.question}</h3>
             <img className='pollImg' src={poll.img} alt="Poll" />
-            <Link to={`/${poll.id}`} state={{ id: poll.id, title: poll.title }}><button className='pollBtn'> View Choices </button></Link>
+            <Link to={`poll/pollInfo/${poll.id}`} state={{ poll_id: poll.id, title: poll.title }}><button className='pollBtn'> View Choices </button></Link>
           </div>
         ))}
       </div>

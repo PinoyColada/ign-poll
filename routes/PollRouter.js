@@ -3,7 +3,7 @@ const controller = require('../controllers/PollController')
 
 Router.get('/', controller.GetPolls)
 Router.get('/:user_id', controller.GetUserPolls)
-Router.get('/:poll_id', controller.GetOpinionByPollId)
+Router.get('/pollInfo/:poll_id', controller.GetOpinionByPollId)
 Router.post('/:user_id', controller.CreatePoll)
 // Router.put('/:poll_id', controller.UpdatePoll)
 // Router.delete('/:poll_id', controller.DeletePoll)

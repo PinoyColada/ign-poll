@@ -52,7 +52,7 @@ function App() {
             user={user} />} />
           <Route path="/profile/:user_id" element={<Profile
             user={user} />} />
-          <Route path="/:poll_id" element={<PollOptions />} />
+          <Route path="/poll/pollInfo/:poll_id" element={<PollOptions />} />
         </Routes>
       </main>
     </div>
