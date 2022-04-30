@@ -46,7 +46,6 @@ const CreateAPoll = ({ user }) => {
               onChange={handleChange}
               name="question"
               type="text"
-              placeholder="Messi scores an impossible shot"
               value={formValues.question}
               required
             />
@@ -57,7 +56,6 @@ const CreateAPoll = ({ user }) => {
               onChange={handleChange}
               name="img"
               type="text"
-              placeholder="This goal was insane!"
               value={formValues.img}
               required
             />

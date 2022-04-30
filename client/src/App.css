@@ -70,6 +70,16 @@ header {
   color: #ffffff;
 }
 
+.pollContainerWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.pollContainerWrapper > .pollContainer {
+  flex-basis: 100%;
+}
+
 .pollContainer {
   background-color: #303643;
   max-width: 30%;

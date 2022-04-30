@@ -18,7 +18,7 @@ const PollPage = () => {
   return (
     <div>
       <h1>This is the poll page</h1>
-      <div>
+      <div className='pollContainerWrapper'>
         {polls.map((poll) => (
           <div key={poll.id} className='pollContainer'>
             <h3 className='pollTitle'>{poll.question}</h3>
@@ -27,7 +27,7 @@ const PollPage = () => {
           </div>
         ))}
       </div>
-      <h3>Don't see a poll you're looking for? Create a poll now by simply logging in!</h3>
+      <h3>Don't see a poll you're looking for? Create a poll now by simply signing in!</h3>
     </div>
   )
 }
