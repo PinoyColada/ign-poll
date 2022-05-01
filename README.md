@@ -29,7 +29,7 @@
 
 ### ***Getting Started***
 #### DEMO VIDEO
-https://vimeo.com/manage/videos/705002936
+https://vimeo.com/manage/videos/705003746
 #### Simply click this link https://polar-shelf-85111.herokuapp.com/ and you will be brought to the deployed application
 #### If you would like to use it locally, create a parent directory with 2 children directory, one with the front end repo (https://github.com/PinoyColada/ign-fullstack) and one with the back end repo (https://github.com/PinoyColada/ign-poll). Do 'npm i' in both directories, and for the backend, do 'npm init -y' , 'npx sequelize-cli init' , 'npx sequelize-cli db:create', 'npx sequelize-cli db:migrate' and 'npx sequelize-cli db:seed:all' in order. Once you have you done both of the steps, you can now 'npm start' both of them.
 ### 
